@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        group: [hl-main, hl-test, aster, edgex, bybit]
+        group: [hl-main, hl-test, aster, edgex]
     steps:
       - name: trigger
         run: |
