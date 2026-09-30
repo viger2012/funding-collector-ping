@@ -1,0 +1,13 @@
+name: defillama-daily
+on:
+  schedule:
+    - cron: "23 1 * * *"
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          out=$(curl -sS --max-time 180 "https://funding-collector.1465529792.workers.dev/?group=defillama")
+          echo "$out"
+          echo "$out" | grep -q "ERROR" && exit 1 || true
